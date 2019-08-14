@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Medma_Reward_Referral</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license>OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension provides reward feature to be included for customers.</summary>
+    <description>This extension provides reward feature to be included for customers.</description>
+    <notes>This is a stable version</notes>
+    <authors><author><name>Medma Infomatix</name><user>Medma_Infomatix</user><email>gaurav@medma.in</email></author></authors>
+    <date>2012-09-25</date>
+    <time>11:34:39</time>
+    <contents><target name="magelocal"><dir name="Medma"><dir name="Reward"><dir name="Block"><dir name="Adminhtml"><dir name="Customer"><dir name="Edit"><dir name="Tab"><file name="Action.php" hash="2181fe64be6fa281bd9de57846491ad3"/></dir></dir><file name="Edit.php" hash="ce306a8d9a923b49ad93ad17b735020a"/></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="d55caff5bb37f1ac3a285bb62461cec3"/></dir><dir name="Model"><dir name="Mysql4"><dir name="Redemptpayment"><file name="Collection.php" hash="80d4fc648c8dccc355b0eae9ef6989b8"/></dir><file name="Redemptpayment.php" hash="b6604e2ebbd273b0bac6e53679bad5b4"/><dir name="Reward"><file name="Collection.php" hash="fbcfd1204a45a1df7ab639d7a29d537b"/></dir><file name="Reward.php" hash="6073233455c20d644a5ac4a3a86a34ba"/></dir><file name="Observer.php" hash="c5c0a2ee9d42d4c8cfc8537ec2d26fca"/><file name="Redemptpayment.php" hash="15c05eadd004cb38f06e7a722493bde5"/><file name="Reward.php" hash="9a54a47ba130cc3d9a2d53ffc6773872"/></dir><dir name="controllers"><file name="AccountController.php" hash="87f47ac8b04ff6577bd2b690dd237f20"/><dir name="Adminhtml"><file name="CustomerController.php" hash="8bca658c2dd041fa576b4e531325005b"/></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="7e343c10ae4631b468da46f33d493563"/><file name="config.xml" hash="2a1a189a759df2eccf75af6cff86ef4d"/><file name="system.xml" hash="d07b4e11a5b379246d943e2eb32f6eef"/></dir><dir name="sql"><dir name="reward_setup"><file name="mysql4-install-0.1.0.php" hash="45479d9da2e758a3483755bed684b53a"/><file name="mysql4-upgrade-0.1.0-0.1.1.php" hash="e9c2132f14d8564abf27bf9a703cf102"/><file name="mysql4-upgrade-0.1.9-0.2.0.php" hash="d286c223beb48cec0f4685213f4e665c"/><file name="mysql4-upgrade-0.2.0-0.2.1.php" hash="91b101a45354fce10a2f04b9e094c4d5"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Medma_Reward.xml" hash="1ff85a15dfccb65fec1031083202a9b1"/></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="reward.xml" hash="399314ccef290da60c4139e4656d5d33"/></dir><dir name="template"><dir name="reward"><file name="action.phtml" hash="633aa761542c7767cd94f00923129d3b"/></dir></dir></dir></dir></dir><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="reward.xml" hash="edb7e111b05485e8ab9b14a3a0a38d0a"/></dir><dir name="template"><dir name="reward"><dir name="form"><file name="edit.phtml" hash="1101cb76115ab62afec6e835020194ba"/><file name="redemption.phtml" hash="14f10b5d06e993cb65fecca290ccee8c"/><file name="register.phtml" hash="575734d892c56e8307bca328cc9cd183"/></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

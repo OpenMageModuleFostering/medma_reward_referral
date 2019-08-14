@@ -1,0 +1,113 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+$customerId	= Mage::getSingleton('customer/session')->getId();
+$customerDetails= Mage::getSingleton('customer/session')->getCustomer()->getData();
+$customerFirstName	= $customerDetails['firstname'];
+$customerLastName	= $customerDetails['lastname'];
+$customerName		= $customerFirstName.' '.$customerLastName;
+$customerUniqueId	= $customerDetails['customeridentifier1'];
+$model		= Mage::getModel('reward/reward');
+$model		= $model->getCollection()
+->addFieldToFilter('customer_id',array($customerId))
+->getData();
+$redemptionAmount	= 0;
+for($q=0;$q<count($model);$q++)
+{
+	$redemptionAmount	+= $model[$q]['redemption_amount'];
+}
+$modelRedempt	= Mage::getModel('reward/reward');
+$modelRedempt	= $modelRedempt->getCollection()
+->addFieldToFilter('customer_id',array($customerId))
+->getData();
+$redemptionRow	= count($modelRedempt);
+$storeCurrency	= Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();
+
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Redemption Account Information') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<form action="<?php echo $this->getUrl('customer/account/redemptionPost') ?>" method="post" id="form-validate">
+	<div class="fieldset">
+		<?php echo $this->getBlockHtml('formkey')?>
+		<h2 class="legend"><?php echo $this->__('Redemption Information') ?></h2>
+		<ul class="form-list">
+			<li>
+				<label for="email"><?php echo $this->__('Redemption Amount: '.$storeCurrency.''.$redemptionAmount) ?></label>
+				<div class="input-box">
+					
+				</div>
+			</li>
+		</ul>
+	</div>
+	<?php if($redemptionRow>0){?>
+		<div class="fieldset">
+			<?php echo $this->getBlockHtml('formkey')?>
+			<h2 class="legend"><?php echo $this->__('Redemption Request Submitted') ?></h2>
+			<ul class="form-list">
+				<li>
+					<label for="email"><?php echo $this->__('Redemption request has been sent to admin') ?></label>
+					<div class="input-box">
+					
+					</div>
+				</li>
+			</ul>
+		</div>
+	<?php } else {?>
+		<div class="fieldset">
+			<?php echo $this->getBlockHtml('formkey')?>
+			<h2 class="legend"><?php echo $this->__('Redemption Form') ?></h2>
+			<ul class="form-list">
+				<li>
+					<label for="bank_name" class="required"><em>*</em><?php echo $this->__('Name') ?></label>
+					<div class="input-box">
+					<input type="text" name="bank_name" id="bank_name" value="<?php echo $customerName;?>" title="<?php echo $this->__('Name') ?>" class="input-text required-entry" />
+					</div>
+				</li>
+				<li>
+					<label for="bank_address" class="required"><em>*</em><?php echo $this->__('Unique Code') ?></label>
+					<div class="input-box">
+					<input type="text" name="account_no" id="account_no" value="<?php echo $customerUniqueId;?>" title="<?php echo $this->__('Unique Code') ?>" class="input-text" />
+					</div>
+				</li>
+				
+				<li>
+					<label for="email" class="required"><em>*</em><?php echo $this->__('Redemption Amount') ?></label>
+					<div class="input-box">
+						<input type="text" name="redemption_amount" id="redemption_amount" value="<?php echo $redemptionAmount;?>" title="<?php echo $this->__('Redemption Amount') ?>" class="input-text" readonly="true" />
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="buttons-set">
+			<p class="required"><?php echo $this->__('* Required Fields') ?></p>
+			<p class="back-link"><a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
+			<button type="submit" title="<?php echo $this->__('Save') ?>" class="button"><span><span><?php echo $this->__('Save') ?></span></span></button>
+		</div>
+	<?php }?>
+	
+</form>

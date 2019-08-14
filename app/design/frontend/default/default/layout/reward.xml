@@ -1,0 +1,32 @@
+<layout version="0.1.0">
+	<!--<customer_account_create translate="label">
+		<reference name="content">
+		    <block type="customer/form_register" name="customer_form_register" template="reward/form/register.phtml"/>
+		</reference>
+	</customer_account_create>-->
+	<customer_account_create>
+		<reference name="customer_form_register">
+			<action method="setTemplate"><template>reward/form/register.phtml</template></action>
+		</reference>
+	</customer_account_create>
+	<customer_account>
+		<reference name="customer_account_navigation">
+			<action method="addLink" translate="label" module="customer"><name>account_redemption</name><path>customer/account/redemption/</path><label>Redemption Information</label></action>
+		</reference>
+	</customer_account>
+	<customer_account_redemption translate="label">
+		<label>Customer Account Redemption Form</label>
+		<update handle="customer_account"/>
+		<reference name="my.account.wrapper">
+		    <block type="core/template" name="customer_redemption" template="reward/form/redemption.phtml"/>
+		</reference>
+		<reference name="left">
+		  <action method="unsetChild"><name>left.permanent.callout</name></action>
+		</reference>
+	</customer_account_redemption>
+	<customer_account_edit>
+		<reference name="my.account.wrapper">
+		    <block type="customer/form_edit" name="customer_edit" template="reward/form/edit.phtml"/>
+		</reference>
+	</customer_account_edit>
+</layout>

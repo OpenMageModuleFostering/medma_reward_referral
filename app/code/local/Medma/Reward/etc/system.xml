@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<reward translate="label">
+			<label>Credit Settings</label>
+			<sort_order>1500</sort_order>
+		</reward>
+	</tabs>	
+	<sections>
+		<reward translate="label">
+			<label>Credit Settings</label>
+			<tab>reward</tab>
+			<sort_order>1000</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<!-- New groups go here -->
+				<reward translate="label">
+					<label>Credit Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>100</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+							      
+						      <credit>
+							      <label>Credit</label>
+							      <frontend_type>text</frontend_type>
+							      <sort_order>11</sort_order>
+							      <show_in_default>1</show_in_default>
+							      <show_in_website>1</show_in_website>
+							      <show_in_store>1</show_in_store>
+						      </credit>
+		   		        </fields>
+				</reward>
+			</groups>
+	      </reward>
+      </sections>
+</config>

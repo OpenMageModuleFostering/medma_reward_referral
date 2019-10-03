@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Medma_Reward_Referral",
+    "name": "OpenMageModuleFostering\/Medma_Reward_Referral",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
     "description": "This extension provides reward feature to be included for customers.",
     "authors": [
-    {
-        "name": "Medma Infomatix",
-        "email": "gaurav@medma.in"
-    }
-],
+        {
+            "name": "Medma Infomatix",
+            "email": "gaurav@medma.in"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
